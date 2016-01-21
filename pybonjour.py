@@ -106,7 +106,8 @@ else:
             import threading
             _global_lock = threading.RLock()
 
-    _libdnssd = ctypes.cdll.LoadLibrary(_libdnssd)
+    from ctypes.util import find_library
+    _libdnssd = ctypes.cdll.LoadLibrary(find_library(_libdnssd))
     _CFunc = ctypes.CFUNCTYPE
 
 
